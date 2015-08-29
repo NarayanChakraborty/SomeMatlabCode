@@ -1,0 +1,27 @@
+clc;
+clear all;
+a = input('Enter the amplitude = ');
+f = input('Enter the frequency = ');
+n = input('Enter the N value = ');
+t = 0:0.1:n;
+x1 = stem(-t/3);
+x2 = sin(2*pi*f*t);
+y = x1.*x2;
+subplot(3,1,1);
+stem(x1);
+title('Impulse Signal');
+ylabel('Amplitude ---->');
+xlabel('n ---->');
+grid on;
+subplot(3,1,2)
+plot(t,x2);
+title('Sine Wave');
+xlabel('Time ----->');
+ylabel('Amplitude ----->');
+grid on;
+subplot(3,1,3)
+stem(t,y);
+title('Pulse Modulated Wave');
+xlabel('Time ----->');
+ylabel('Amplitude ----->');
+grid on;

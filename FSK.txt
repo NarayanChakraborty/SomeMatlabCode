@@ -1,0 +1,29 @@
+clc
+clear all
+close all
+m=input('enter the binary sequency')
+l=length(m)
+t=[0.01:0.01:l]
+for i=1:1:l
+a((i-1)*100+1:i*100)=m(i)
+end
+% the fsk can be written as sum of two asks having different frequencies  
+% generating the ASK Signal for the inputed sequence with high frequency
+f1=a.*(sin(2*pi*5*t))
+f2=not(a).*sin(2*pi*t)
+fsk=f1+f2
+figure(1)
+plot(f1)
+title('ASk signal')
+figure(2)
+plot(f2)
+title('ask signal')
+figure(3)
+plot(fsk)
+title('frequency shift keying signal')
+figure(4)
+hold on
+plot(f1,'black')
+plot(f2,'red')
+helg=legend('high frequency signal','low frequency signal')
+hold off
