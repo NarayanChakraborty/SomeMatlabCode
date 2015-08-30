@@ -1,0 +1,28 @@
+Output for AM:
+
+Enter the amplitude of message signal = 5
+Enter the amplitude of carrier signal = 10
+Enter the message frequency = 10
+Enter the carrier frequency = 100
+
+Output for FM:
+Enter the amplitude of message signal = 5
+Enter the amplitude of carrier signal = 5
+Enter the message frequency = 10
+Enter the carrier frequency = 100
+Enter modulation index = 4
+
+Output for PAM:
+
+Enter the amplitude = 5
+Enter the frequency = 1
+Enter the N value = 2  
+Output for PWM:
+
+Enter the frequency of carrier signal (sawtooth) = 10
+Enter the frequency of message signal (sine) = 1
+Enter the amplitude of carrier signal = 5
+Enter the amplitude of message signal(should be < Carrier) = 4 
+
+output for QPSK:
+Enter the bit stream = [0 1 1 0 1 0 0 0]

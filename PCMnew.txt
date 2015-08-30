@@ -1,0 +1,44 @@
+clear all
+close all
+clc
+t=[0:0.01:3] ;            %  time
+x=sinc(2*pi*t);              %  mesaage signal
+
+%%%%    compressing the signal using mu law one way of quantizing     %%%%
+
+c=compand(x,255,1,'mu/compressor')      %%% the value for mu used here is 255 here 1 represents the maximim value of messagesignal
+
+%%%%    encoding the signal after quantizing   %%%%%
+
+e=uencode(c,3);
+
+%%%%    decodong the signal after receiving   %%%%%
+
+d=udecode(e,3) ;  %the quantizing levels are 3 if levels are increased the origional and received signal are highly correlate try for 8 instead of 3
+
+%%%%    expanding the received signal    %%%%%
+
+o=compand(d,255,1,'mu/expander');
+
+%%%%%%%     plotting the graphs     %%%%%
+
+figure(1)
+hold on                  %for plotting figures on same window for comparision purpose
+plot(x,'--red')
+plot(o,'black')
+hleg=legend('origional signal','received signal using companding')
+hold off
+
+%%%%%%%     pcm with out companding     %%%%%%%%
+
+e1=uencode(x,3)
+d1=udecode(e1,3)
+
+%%%%%%%%%%%%%%%%%           plotting figures      %%%%%%%%%%%%
+
+figure(2)                   %%% in this case same step size is constant so tracking the origional signal exatly failed
+hold on;
+plot(x,'-.red')
+plot(d1,'green')
+hleg=legend('origional signal','received signal without companding')
+hold off;
